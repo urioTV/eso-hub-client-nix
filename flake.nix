@@ -51,8 +51,8 @@
             description = "Client for the ESO Science Data Hub";
             homepage = "https://data.eso-hub.com/";
             license = licenses.unfree;
-            platforms = platforms.all;
-            maintainers = [ maintainers.your-github-username ];
+            platforms = platforms.linux;
+            maintainers = [ maintainers.urioTV ];
           };
         };
     in
