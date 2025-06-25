@@ -1,15 +1,15 @@
 name: "Flake.lock: update Nix dependencies"
 
 on:
-  workflow_dispatch:    # pozwala na ręczne uruchomienie workflow
+  workflow_dispatch:
   schedule:
-    - cron: '0 4 * * 1' # uruchamia się co poniedziałek o 4:00 UTC
+    - cron: '0 4 * * 1'
 
 jobs:
   nix-flake-update:
     permissions:
-      contents: write          # pozwala na push commitów
-      pull-requests: write     # pozwala na otwieranie PR
+      contents: write
+      pull-requests: write
       id-token: write
       issues: write
     runs-on: ubuntu-latest
