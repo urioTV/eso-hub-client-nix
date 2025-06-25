@@ -10,20 +10,28 @@
     };
   };
 
-  outputs = { self, nixpkgs, eso-hub-client-jar }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      eso-hub-client-jar,
+    }:
     let
       lib = nixpkgs.lib;
       pname = "eso-hub-client";
-      version = "2025-06-25";
+      version = lib.substring 0 7 (lib.removePrefix "sha256-" eso-hub-client-jar.narHash);
       supportedSystems = lib.systems.flakeExposed;
 
-      mkPackage = system:
+      mkPackage =
+        system:
         let
           pkgs = import nixpkgs {
             inherit system;
-            config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-              "eso-hub-client"
-            ];
+            config.allowUnfreePredicate =
+              pkg:
+              builtins.elem (lib.getName pkg) [
+                "eso-hub-client"
+              ];
           };
         in
         pkgs.stdenvNoCC.mkDerivation {
@@ -36,14 +44,14 @@
 
           installPhase = ''
             runHook preInstall
-            
+
             mkdir -p $out/bin $out/share/java
-            
+
             cp $src $out/share/java/${pname}.jar
-            
+
             makeWrapper ${pkgs.jre}/bin/java $out/bin/${pname} \
               --add-flags "-jar $out/share/java/${pname}.jar"
-            
+
             runHook postInstall
           '';
 
