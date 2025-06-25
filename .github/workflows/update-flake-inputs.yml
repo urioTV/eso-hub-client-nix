@@ -1,0 +1,32 @@
+name: Update Flake Inputs
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 0' # every sunday
+
+jobs:
+  update-flake-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v22
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+
+      - name: Update flake inputs
+        run: nix flake update
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'chore(deps): update flake inputs'
+          title: 'Update Flake Inputs'
+          body: |
+            This PR updates the flake inputs to their latest versions.
+          branch: 'update-flake-inputs'
+          delete-branch: true
