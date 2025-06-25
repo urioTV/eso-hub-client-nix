@@ -34,7 +34,7 @@ To use the overlay, add it to your `flake.nix` inputs and outputs:
 
 ```nix
 # In your inputs
-inputs.eso-hub-client-flake.url = "github:your-username/eso-hub-client-nix"; # Replace with the actual repository URL
+inputs.eso-hub-client-flake.url = "github:urioTV/eso-hub-client-nix"; # Replace with the actual repository URL
 
 # In your outputs, within the `nixosConfigurations` or `homeConfigurations` section
 nixpkgs.overlays = [
