@@ -19,6 +19,6 @@
 *.iws
 
 # Nix
-result/
+/result
 .direnv/
 .envrc
