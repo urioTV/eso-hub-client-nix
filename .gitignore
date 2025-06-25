@@ -20,6 +20,5 @@
 
 # Nix
 result/
-/nix/store/
 .direnv/
 .envrc
