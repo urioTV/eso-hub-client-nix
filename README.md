@@ -1,6 +1,6 @@
-# ESO Hub Client
+# ESO Hub Client Nix Flake
 
-This project is a client application for the ESO Hub. It is built using Java and managed with Nix.
+This project provides a Nix Flake to easily run the ESO Hub Client, which is a Java application.
 
 ## Features
 - Connects to the ESO Hub.
@@ -31,4 +31,4 @@ nix run .#eso-hub-client
 Contributions are welcome! Please feel free to submit pull requests or open issues.
 
 ## License
-This project is licensed under [Specify License, e.g., MIT, Apache 2.0].
+This project is licensed under the Do What The F*** You Want To Public License (WTFPL).
