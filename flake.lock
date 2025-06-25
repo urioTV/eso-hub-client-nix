@@ -1,0 +1,40 @@
+{
+  "nodes": {
+    "eso-hub-client-jar": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-GHbvRqry19AnF0T4yrsHeS0V4ufw5zc9vfof3KMr3zA=",
+        "type": "file",
+        "url": "https://data.eso-hub.com/client/download/linux"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://data.eso-hub.com/client/download/linux"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1750741721,
+        "narHash": "sha256-Z0djmTa1YmnGMfE9jEe05oO4zggjDmxOGKwt844bUhE=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "4b1164c3215f018c4442463a27689d973cffd750",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "eso-hub-client-jar": "eso-hub-client-jar",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
