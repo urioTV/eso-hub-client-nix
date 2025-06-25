@@ -27,6 +27,29 @@ nix run .#eso-hub-client
 - `flake.lock`: Lock file for Nix dependencies.
 - `result/`: Output directory for the Nix build, containing the executable JAR and other assets.
 
+## Nix Overlay
+This flake provides an overlay that makes the `eso-hub-client` package available in your Nixpkgs. This is useful if you want to integrate the ESO Hub Client into your NixOS configuration or other Nix-managed environments.
+
+To use the overlay, add it to your `flake.nix` inputs and outputs:
+
+```nix
+# In your inputs
+inputs.eso-hub-client-flake.url = "github:your-username/eso-hub-client-nix"; # Replace with the actual repository URL
+
+# In your outputs, within the `nixosConfigurations` or `homeConfigurations` section
+nixpkgs.overlays = [
+  eso-hub-client-flake.overlay
+];
+```
+
+After adding the overlay, you can refer to `eso-hub-client` directly in your Nix configurations, for example:
+
+```nix
+environment.systemPackages = with pkgs; [
+  eso-hub-client
+];
+```
+
 ## Contributing
 Contributions are welcome! Please feel free to submit pull requests or open issues.
 
