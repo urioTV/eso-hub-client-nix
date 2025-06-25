@@ -19,7 +19,7 @@
 *.iws
 
 # Nix
-/result/
+result/
 /nix/store/
 .direnv/
 .envrc
